@@ -1,45 +1,104 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Calculadora IMC</title>
+    <title>Sistema de Agendamento</title>
 </head>
 <body>
 
-        <div class="container">
+    <div class="container">
         
-            <div class="calculadora">
+        <div class="agendamento">
+        
+            <div class="title">📅 Sistema de Agendamento</div>
             
-                <div class="title">Calculadora -  IMC</div>
+            <div id="usuarioInfo" class="usuario-info"></div>
 
-            <div class="input">
-                <label>Nome:</label>
-                <input type="text"  placeholder="Informe seu nome" id="nome">
+            <div class="calendario-container">
+                <div class="calendario-header">
+                    <button id="mesAnterior" class="btn-navegacao">&larr;</button>
+                    <h2 id="mesAno"></h2>
+                    <button id="mesProximo" class="btn-navegacao">&rarr;</button>
+                </div>
+                <div id="calendario" class="calendario"></div>
             </div>
 
-            <div class="input">
-                <label>Altura:</label>
-                <input type="number"  placeholder="Informe sua altura" id="altura">
-            </div>
-
-            <div class="input">
-                <label>Peso:</label>
-                <input type="number" placeholder="Informe seu peso" id="peso">
-            </div>
-
-            <button class="button">Calcular</div>
-
-             <div class="result"></div>
-            
+            <footer class="footer">
+                @Daniela Galli
+            </footer>
         </div>
+    </div>
 
+    <!-- Modal de Login -->
+    <div id="modalLogin" class="modal">
+        <div class="modal-content">
+            <button class="fechar-modal">&times;</button>
+            <h2>Login</h2>
+            <form id="formLogin">
+                <div class="form-group">
+                    <label for="emailLogin">E-mail:</label>
+                    <input type="email" id="emailLogin" name="email" required>
+                </div>
+                <button type="submit" class="btn-confirmar">Entrar</button>
+            </form>
+            <p class="form-footer">
+                Não tem conta? <button type="button" id="btnCriarConta" class="btn-link">Criar conta</button>
+            </p>
+        </div>
+    </div>
 
-        <footer class="footer">
-            Desenvolvido e recriado por @Daniela Galli
-        </footer>
-   
+    <!-- Modal de Criar Conta -->
+    <div id="modalRegistro" class="modal">
+        <div class="modal-content">
+            <button class="fechar-modal">&times;</button>
+            <h2>Criar Conta</h2>
+            <form id="formRegistro">
+                <div class="form-group">
+                    <label for="nomeRegistro">Nome Completo:</label>
+                    <input type="text" id="nomeRegistro" name="nome" required>
+                </div>
+                <div class="form-group">
+                    <label for="emailRegistro">E-mail:</label>
+                    <input type="email" id="emailRegistro" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="telefoneRegistro">Telefone:</label>
+                    <input type="tel" id="telefoneRegistro" name="telefone" required>
+                </div>
+                <button type="submit" class="btn-confirmar">Criar Conta</button>
+            </form>
+            <p class="form-footer">
+                Já tem conta? <button type="button" id="btnVoltarLogin" class="btn-link">Fazer login</button>
+            </p>
+        </div>
+    </div>
+
+    <!-- Modal de Horários -->
+    <div id="modalHorarios" class="modal">
+        <div class="modal-content">
+            <button class="fechar-modal">&times;</button>
+            <h2 id="dataModal"></h2>
+            <div id="usuarioLogado" class="usuario-logado"></div>
+            <div id="listaHorarios" class="lista-horarios"></div>
+            <div class="modal-footer">
+                <button id="btnConfirmarAgendamento" class="btn-confirmar" style="display: none;">Confirmar Agendamento</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Confirmação -->
+    <div id="modalConfirmacao" class="modal">
+        <div class="modal-content">
+            <button class="fechar-modal">&times;</button>
+            <h2>✅ Agendamento Confirmado!</h2>
+            <div id="detalhesAgendamento" class="detalhes-agendamento"></div>
+            <p id="mensagemEmail" class="mensagem-email"></p>
+            <button id="btnFecharConfirmacao" class="btn-confirmar">Fechar</button>
+        </div>
+    </div>
+
 <script src="js.js"></script>
 
 </body>
